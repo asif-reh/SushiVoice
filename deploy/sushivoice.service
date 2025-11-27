@@ -1,0 +1,20 @@
+[Unit]
+Description=SushiVoice - Voice-Controlled Sushi Labeling System
+After=network.target sound.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/SushiVoice
+ExecStart=/usr/bin/python3 /home/pi/SushiVoice/src/inference/asr_pipeline.py --model /home/pi/SushiVoice/models/sushi_slm_quantized.pth --continuous --confidence 0.7
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+# Resource limits
+MemoryLimit=512M
+CPUQuota=80%
+
+[Install]
+WantedBy=multi-user.target

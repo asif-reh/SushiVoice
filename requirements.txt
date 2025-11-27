@@ -1,0 +1,26 @@
+# Core ML/Audio dependencies
+torch>=2.0.0
+torchaudio>=2.0.0
+numpy>=1.24.0
+
+# Audio processing
+librosa>=0.10.0
+soundfile>=0.12.0
+audioread>=3.0.0
+webrtcvad>=2.0.10
+pyaudio>=0.2.13
+
+# Text-to-Speech for dataset generation
+pyttsx3>=2.90
+gTTS>=2.3.0
+
+# Printer support
+python-escpos>=3.0
+
+# Training utilities
+tensorboard>=2.13.0
+tqdm>=4.65.0
+
+# Utilities
+scipy>=1.10.0
+matplotlib>=3.7.0
