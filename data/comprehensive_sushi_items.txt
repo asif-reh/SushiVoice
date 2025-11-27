@@ -1,0 +1,442 @@
+Ainame
+Aji
+Akami
+Akamutsu
+Aka-yagara
+Amadai
+Anago
+Ankimo
+Ayu
+Buri
+Hamachi
+Dojo
+Ei
+Engawa
+Fugu
+Funa
+Gindara
+Hamo
+Hata
+Hatahata
+Hikari-mono
+Hiramasa
+Hirame
+Hokke
+Hoshigarei
+Inada
+Isake
+Isaki
+Ishigarei
+Iwana
+Iwashi
+Kajiki
+Makajiki
+Mekajiki
+Kanpachi
+Karei
+Katsuo
+Kawahagi
+Kibinago
+Kisu
+Kochi
+Kohada
+Shinko
+Konoshiro
+Kue
+Madai
+Maguro
+Chūtoro
+Kuro maguro
+Kihada maguro
+Mebachi maguro
+Meji maguro
+Ōtoro
+Shiro maguro
+Binnaga
+Bincho
+Toro
+Makogarei
+Mamakari
+Matou-dai
+Masu
+Mejina
+Nijimasu
+Nishin
+Noresore
+Ohyou
+Okoze
+Saba
+Sake
+Shake
+Sanma
+Sawara
+Sayori
+Shima-aji
+Shirauo
+Shiromi
+Suzuki
+Seigo
+Tachiuo
+Tai
+Kasugo
+Kurodai
+Ibodai
+Kinmedai
+Tara
+Unagi
+Aori ika
+Hotaru ika
+Ika
+Sumi ika
+Tako
+Yari ika
+Hoya
+Kamesashi
+Kurage
+Kujira
+Namako
+Shiokara
+Hitode
+Uni
+Caviar
+Ikura
+Sujiko
+Kazunoko
+Masago
+Mentaiko
+Shirako
+Tarako
+Tobiko
+Kombu
+Wakame
+Akagai
+Ama-ebi
+Aoyagi
+Asari
+Awabi
+Botan-ebi
+Ebi
+Hamaguri
+Himejako
+Himo
+Hokkigai
+Hokki
+Hotategai
+Hotate
+Ise-ebi
+Kaibashira
+Hashira
+Kani
+Kani-miso
+Kaki
+Kegani
+Kuruma-ebi
+Makigai
+Mategai
+Matsubagani
+Mirugai
+Sazae
+Shako
+Shiba ebi
+Shima ebi
+Tarabagani
+Tairagai
+Torigai
+Tsubugai
+Zuwaigani
+Asparagus
+Avocado
+Carrot
+Cucumber
+Eggplant
+Ginger
+Gobō
+Kaiware
+Kanpyō
+Kappamaki
+Konnyaku
+Nattō
+Negi
+Oshinko
+Shiitake
+Takuan
+Tofu
+Tsukemono
+Umeboshi
+Wasabi
+Yam
+Yuba
+Nori
+Salmon Skin
+Usuyaki-tamago
+Tamago
+Quail Eggs
+Basashi
+Sakura niku
+Gyusashi
+Shikasashi
+Torisashi
+Fat Greenling
+Japanese Jack Mackerel
+Red Meat Fish
+Blackthroat Seaperch
+Red Cornetfish
+Tilefish
+Saltwater Eel
+Conger Eel
+Monkfish Liver
+Sweetfish
+Adult Yellowtail
+Young Yellowtail
+Japanese Loach
+Skate
+Fluke Fin
+Puffer Fish
+Crucian Carp
+Sablefish
+Daggertooth Pike Conger
+Grouper
+Sandfish
+Blue-Backed Fish
+Yellowtail Amberjack
+Fluke
+Flounder
+Okhotsk Atka Mackerel
+Spotted Halibut
+Very Young Yellowtail
+Trumpeter
+Striped Pigfish
+Stone Flounder
+Charr
+Sardine
+Swordfish
+Blue Marlin
+Greater Amberjack
+Flatfish
+Skipjack Tuna
+Filefish
+Banded Blue Sprat
+Silver-Stripe Round Herring
+Sillago
+Flathead
+Japanese Gizzard Shad
+Very Young Gizzard Shad
+Fully Matured Gizzard Shad
+Longtooth Grouper
+Red Sea Bream
+Tuna
+Medium-Fat Bluefin Tuna Belly
+Bluefin Tuna
+Yellowfin Tuna
+Bigeye Tuna
+Young Pacific Bluefin Tuna
+Fattiest Portion Bluefin Tuna Belly
+Albacore
+White Tuna
+Fatty Bluefin Tuna Belly
+Marbled Flounder
+Sprat
+John Dory
+Trout
+Girella
+Rainbow Trout
+Herring
+Baby Anago
+Halibut
+Okoze Stonefish
+Chub Mackerel
+Blue Mackerel
+Salmon
+Pacific Saury
+Mackerel Pike
+Spanish Mackerel
+Halfbeak
+White Trevally
+Whitebait
+Seasonal White Meat Fish
+Sea Bass
+Young Sea Bass
+Beltfish
+Seabream Snapper
+Young Sea Bream
+Snapper
+Japanese Butterfish
+Splendid Alfonsino
+Cod
+Freshwater Eel
+Bigfin Reef Squid
+Firefly Squid
+Cuttlefish
+Squid
+Japanese Spineless Cuttlefish
+Octopus
+Spear Squid
+Sea Pineapple
+Sea Turtle
+Jellyfish
+Whale
+Sea Cucumber
+Seasoned Salted Entrails
+Starfish
+Sea Urchin Gonad
+Sturgeon Roe
+Salmon Roe
+Salmon Roe In Sac
+Herring Roe
+Smelt Roe
+Pollock Roe Seasoned Spicy
+Milt
+Alaska Pollock Roe
+Flying Fish Roe
+Kelp
+Edible Seaweed
+Sea Mustard
+Ark Shell
+Raw Pink Shrimp
+Trough Shell
+Japanese Carpet Shell
+Abalone
+Botan Shrimp
+Boiled Shrimp
+Raw Shrimp
+Clam
+Giant Clam
+Fringe Around Akagai
+Surf Clam
+Scallop
+Spiny Lobster
+Valve Muscles Of Scallop
+Valve Muscles Of Shellfish
+Crab
+Imitation Crab
+Crab Offal Paste
+Oyster
+Hairy Crab
+Prawn
+Conch
+Razor Clam
+Champagne Crab
+Snow Crab
+Geoduck Clam
+Horned Turban Shell
+Mantis Shrimp
+Grey Prawn
+Morotoge Shrimp
+King Crab
+Pen-Shell Clam
+Cockle
+Whelk
+Julienne Carrot
+Julienne Cucumber
+Small Eggplant Slices
+Pickled Ginger
+Beni Shōga
+Gari
+Burdock Root
+Daikon Radish Sprouts
+Dried Gourd
+Makizushi Of Cucumber
+Cake From Konjac Corm
+Fermented Soybeans
+Japanese Bunching Onion
+Pickled Vegetable
+Dried Shiitake Mushrooms
+Pickled Daikon Radish
+Soybean Curd
+Various Pickled Vegetables
+Pickled Plum
+Paste Of Wasabi Root
+Sweet Potato
+Tofu Skin
+Soybean Skin
+Dried Seaweed
+Cucumber Sheets
+Sweet Egg Omelette
+Sweet Custard
+Raw Horse
+Raw Beef
+Raw Venison
+Raw Chicken
+California Roll
+Spicy Tuna Roll
+Dragon Roll
+Rainbow Roll
+Philadelphia Roll
+Tempura Shrimp Roll
+Eel Avocado Roll
+Salmon Avocado Roll
+Tuna Avocado Roll
+Vegetable Roll
+Spicy Salmon Roll
+Alaska Roll
+Boston Roll
+Caterpillar Roll
+Spider Roll
+Volcano Roll
+Firecracker Roll
+Tiger Roll
+Sunset Roll
+Mango Tango Roll
+Salmon Skin Roll
+Unagi Don
+Chirashi Bowl
+Poke Bowl
+Edamame
+Miso Soup
+Seaweed Salad
+Gyoza
+Tempura Vegetables
+Chicken Katsu
+Tonkatsu
+Beef Teriyaki
+Shrimp Teriyaki
+Tofu Teriyaki
+Salmon Teriyaki
+Chicken Teriyaki
+Chicken Yakitori
+Beef Yakitori
+Tuna Tataki
+Salmon Tataki
+Hamachi Nigiri
+Ebi Nigiri
+Ikura Nigiri
+Tamago Nigiri
+Inari Nigiri
+Scallop Nigiri
+Crab Nigiri
+Mackerel Nigiri
+Eel Nigiri
+Sea Urchin Nigiri
+Sweet Shrimp Nigiri
+Octopus Nigiri
+Squid Nigiri
+Salmon Nigiri
+Tuna Nigiri
+Spicy Crab Roll
+Dynamite Roll
+Crunch Roll
+Tempura Roll
+Veggie Tempura Roll
+Spicy Yellowtail Roll
+Tuna Tataki Roll
+Salmon Lovers Roll
+Tuna Lovers Roll
+Sushi Combo
+Sashimi Combo
+Nigiri Combo
+Bento Box
+Teriyaki Bento
+Sushi Platter
+Party Platter
+California Hand Roll
+Spicy Tuna Hand Roll
+Salmon Skin Hand Roll
+Shrimp Tempura Hand Roll
+Eel Hand Roll
+Green Tea Ice Cream
+Mochi Ice Cream
+Tempura Ice Cream
+Cheesecake
+Dorayaki
+Green Tea
+Jasmine Tea
