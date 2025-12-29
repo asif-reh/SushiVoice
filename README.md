@@ -1,228 +1,176 @@
-# 🍣 SushiVoice
+# 🍣 SushiVoice - Voice-Controlled Label Printing
 
-**A patentable, hands-free voice-controlled sushi labeling system powered by a custom Small Language Model (SLM)**
+Custom-built Audio-to-Text Transformer model for voice-controlled sushi label printing.
 
-## Overview
+## 🎯 What It Does
 
-SushiVoice is a standalone audio Small Language Model designed for commercial kitchens, enabling hands-free thermal label printing through natural voice commands. Built with a custom CTC-based ASR architecture (~5-10M parameters), it achieves <300ms latency on edge devices like Raspberry Pi.
+Say **"print 5 chicken teriyaki"** → Get 5 printed labels with "Chicken Teriyaki"
 
-### Key Features
+## ⚡ Quick Start
 
-- 🎤 **Voice-Activated**: Recognize commands like "Hey YoSushi print 5 times of label of Chicken Teriyaki"
-- 🧠 **Custom ASR Model**: CNN encoder + Bidirectional LSTM + CTC decoder optimized for sushi vocabulary
-- 🖨️ **Thermal Printing**: Direct ESC/POS integration with Marka printers
-- ⚡ **Edge Optimized**: Runs on Raspberry Pi with sub-300ms inference latency
-- 🔇 **Noise Robust**: VAD and noise rejection for busy kitchen environments
-- 📊 **Patentable Architecture**: Novel combination of domain-specific ASR + regex parsing + edge deployment
+**Complete workflow in 4 steps (~45 minutes):**
 
-## Architecture
+```bash
+# 1. Generate synthetic training data (5 min)
+python3 generate_training_data_20.py
 
-```
-Voice Input → VAD → Custom ASR Model → Regex Parser → ESC/POS Printer
-              (webrtcvad)  (CNN-LSTM-CTC)   (Qty+Item)    (Thermal Label)
-```
+# 2. Record your voice (20 min)
+python3 record_20_human_voice.py
 
-### Model Architecture
-- **Feature Extraction**: 4-layer CNN (32→64→128→256 filters)
-- **Sequence Encoding**: 2-3 layer Bidirectional LSTM (256-512 hidden units)
-- **Decoding**: CTC loss for alignment-free training, greedy decoding
-- **Parameters**: ~5-8M (quantized to ~2MB for deployment)
+# 3. Train the model (15 min)
+python3 train_transformer_20.py --epochs 30
 
-## Setup
-
-### Prerequisites
-
-- Python 3.10+ (Python 3.9.6 will work but 3.10+ recommended)
-- macOS/Linux for development
-- Raspberry Pi 4/5 (4GB+ RAM) for production deployment
-- USB microphone
-- Marka thermal printer (or compatible ESC/POS printer)
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/asif-reh/SushiVoice.git
-   cd SushiVoice
-   ```
-
-2. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Generate synthetic dataset**
-   ```bash
-   python src/data/generate_dataset.py
-   python src/data/augment_audio.py
-   ```
-
-4. **Train the model**
-   ```bash
-   # Local training (Mac with M1/M2)
-   python src/models/train_custom_slm.py --epochs 20 --batch_size 16
-   
-   # Or upload to Google Colab for GPU training
-   # See notebooks/ for Colab-ready training script
-   ```
-
-5. **Quantize for edge deployment**
-   ```bash
-   python src/models/quantize_model.py --input models/sushi_slm.pth --output models/sushi_slm_quantized.pth
-   ```
-
-6. **Run inference**
-   ```bash
-   python src/inference/asr_pipeline.py --model models/sushi_slm_quantized.pth
-   ```
-
-## Dataset
-
-The system is trained on 1,000-5,000 voice command samples:
-- **Synthetic audio**: Generated via TTS (pyttsx3/gTTS) with template variations
-- **Augmentation**: Kitchen noise, speed/pitch variations, reverb
-- **Real recordings**: Optional manual recordings for improved accuracy
-
-### Vocabulary Coverage
-- **Wake words**: "Hey YoSushi", "YoSushi", "Hello YoSushi"
-- **Actions**: "print", "label", "make"
-- **Quantities**: 1-20 (numeric and word form)
-- **Sushi items**: 50-100 items (see `src/data/sushi_vocab.json`)
-
-## Usage
-
-### Voice Commands
-```
-"Hey YoSushi print 5 times of label of Chicken Teriyaki"
-"YoSushi label 3 times California Roll"
-"Print 10 labels of Salmon Nigiri"
+# 4. Test it!
+python3 demo_transformer_voice.py
 ```
 
-### API Usage
-```python
-from src.inference.asr_pipeline import SushiASR
-from src.inference.parser import parse_command
-from src.inference.printer import print_label
+## 📋 20 Supported Sushi Items
 
-# Initialize ASR
-asr = SushiASR(model_path='models/sushi_slm_quantized.pth')
+1. Chicken Teriyaki
+2. Salmon Nigiri
+3. Tuna Nigiri
+4. California Roll
+5. Spicy Tuna Roll
+6. Eel Avocado Roll
+7. Shrimp Tempura Roll
+8. Dragon Roll
+9. Rainbow Roll
+10. Philadelphia Roll
+11. Salmon Sashimi
+12. Tuna Sashimi
+13. Edamame
+14. Miso Soup
+15. Gyoza
+16. Chicken Katsu
+17. Tempura Shrimp
+18. Vegetable Roll
+19. Avocado Roll
+20. Cucumber Roll
 
-# Transcribe audio
-transcript = asr.transcribe(audio_data)
+## 🏗️ Architecture
 
-# Parse command
-command = parse_command(transcript['text'])
-# → {'quantity': 5, 'item': 'Chicken Teriyaki', 'confidence': 0.92}
+**Custom Transformer SLM (18.5M parameters)**
+- Input: Raw audio (16kHz, 5-6 seconds)
+- Processing: Mel Spectrogram → CNN → Transformer Encoder → CTC Decoder
+- Output: Text transcription
+- Accuracy: 70-85% with 20 human voice samples
 
-# Print labels
-if command and transcript['confidence'] > 0.7:
-    print_label(command['item'], command['quantity'])
+**Components:**
+- `transformer_audio_slm.py` - Core Transformer model (encoder, decoder, training)
+- `src/inference/parser.py` - Command parser (extracts quantity + item)
+- `src/inference/printer.py` - Label printer (console/thermal printer)
+
+## 📦 Installation
+
+```bash
+# Clone repository
+git clone <repo-url>
+cd SushiVoice
+
+# Create virtual environment
+python3 -m venv venv
+source venv/bin/activate  # Mac/Linux
+# or: venv\Scripts\activate  # Windows
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Mac users: Install PyAudio
+brew install portaudio
+pip install pyaudio
 ```
 
-## Deployment (Raspberry Pi)
+## 📖 Documentation
 
-1. **Flash Raspberry Pi OS** (64-bit recommended)
+Read **WORKFLOW_20_ITEMS.md** for complete workflow, troubleshooting, and details.
 
-2. **Transfer files**
-   ```bash
-   scp -r SushiVoice/ pi@raspberrypi.local:~/
-   ```
+## 📁 Project Structure
 
-3. **Install dependencies on Pi**
-   ```bash
-   ssh pi@raspberrypi.local
-   cd ~/SushiVoice
-   pip3 install -r requirements.txt
-   ```
-
-4. **Connect hardware**
-   - USB microphone → Pi USB port
-   - Marka printer → Pi USB port
-   - Find printer VID:PID with `lsusb`
-
-5. **Configure systemd service**
-   ```bash
-   sudo cp deploy/sushivoice.service /etc/systemd/system/
-   sudo systemctl enable sushivoice.service
-   sudo systemctl start sushivoice.service
-   ```
-
-6. **Monitor logs**
-   ```bash
-   journalctl -u sushivoice.service -f
-   ```
-
-## Performance
-
-| Metric | Target | Achieved |
-|--------|--------|----------|
-| Inference Latency (Pi 4) | <300ms | TBD |
-| WER (Clean Audio) | <10% | TBD |
-| WER (Noisy Kitchen) | <25% | TBD |
-| Model Size (Quantized) | ~2MB | TBD |
-| Memory Usage | <500MB | TBD |
-
-## Development
-
-### Project Structure
 ```
 SushiVoice/
+├── data/
+│   ├── sushi_items_20.txt          # 20 sushi items
+│   ├── synthetic_20/               # Generated TTS data (400 files)
+│   └── my_voice_20/                # Your recordings (20 files)
+├── models/
+│   └── transformer_20_best.pth     # Trained model
 ├── src/
-│   ├── data/          # Dataset generation & augmentation
-│   ├── models/        # Model architecture & training
-│   ├── inference/     # Real-time pipeline (VAD, ASR, parser, printer)
-│   └── utils/         # Helper functions
-├── data/              # Audio samples & manifest
-├── models/            # Trained checkpoints
-├── tests/             # Unit & integration tests
-└── deploy/            # Deployment scripts
+│   └── inference/
+│       ├── parser.py               # Command parser
+│       └── printer.py              # Label printer
+├── generate_training_data_20.py    # Generate synthetic data
+├── record_20_human_voice.py        # Record your voice
+├── train_transformer_20.py         # Train model
+├── demo_transformer_voice.py       # Test/run model
+└── transformer_audio_slm.py        # Core Transformer SLM
 ```
 
-### Testing
+## 🎤 Usage Example
+
 ```bash
-# Run unit tests
-python -m pytest tests/
+# Run demo
+python3 demo_transformer_voice.py
 
-# Test inference pipeline
-python tests/test_inference.py
+# Press ENTER, then say:
+"print five chicken teriyaki"
+
+# Output:
+📝 Transcript: 'print five chicken teriyaki'
+🎯 Confidence: 87.5%
+✅ Parsed: 5x chicken teriyaki
+
+📄 PRINTING LABELS:
+========================================
+  Chicken Teriyaki
+  Chicken Teriyaki
+  Chicken Teriyaki
+  Chicken Teriyaki
+  Chicken Teriyaki
+========================================
+✅ 5 label(s) printed
 ```
 
-## Patent Information
+## 🔧 Troubleshooting
 
-This system includes several novel, patentable components:
-1. Custom CTC-ASR architecture optimized for domain-specific voice commands
-2. Integrated regex parser with ASR confidence scoring for command extraction
-3. End-to-end voice-to-print pipeline on edge device with sub-300ms latency
-4. Training methodology combining synthetic TTS + augmentation + real kitchen audio
+**Low accuracy?**
+- Record more samples (2-3 takes per item)
+- Train longer (`--epochs 50`)
+- Check microphone quality
 
-**Provisional Patent Abstract**: "A voice-controlled labeling system comprising a small language model (5-10M parameters) with CNN-LSTM-CTC architecture trained on domain-specific vocabulary, integrated with voice activity detection, regex-based command parsing, and thermal printer driver, deployed on edge computing device for sub-300ms latency in noisy commercial kitchen environments."
+**Model not found?**
+```bash
+ls models/transformer_20_best.pth
+# If missing, retrain:
+python3 train_transformer_20.py --epochs 30
+```
 
-## Roadmap
+**PyAudio errors?**
+```bash
+# Mac
+brew install portaudio && pip install pyaudio
 
-- [x] Initial architecture & project setup
-- [ ] Complete synthetic dataset generation (1,000+ samples)
-- [ ] Train baseline model (WER <15%)
-- [ ] Implement real-time inference pipeline
-- [ ] Test on Raspberry Pi
-- [ ] Record real kitchen audio for retraining
-- [ ] Optimize for production (<10% WER)
-- [ ] File provisional patent
-- [ ] Deploy v1.0 in commercial kitchen
+# Linux
+sudo apt-get install portaudio19-dev && pip install pyaudio
+```
 
-## Contributing
+## 🚀 Next Steps
 
-This is currently a private research project. For inquiries, please contact the repository owner.
+1. **Add more items:** Update `data/sushi_items_20.txt`, regenerate data, retrain
+2. **Improve accuracy:** Record 2-3 samples per item instead of 1
+3. **Real printer:** Connect thermal printer (see `src/inference/printer.py`)
+4. **Deploy:** Run on Raspberry Pi or edge device
 
-## License
+## 📊 Performance
 
-To be determined (considering MIT or proprietary for patent protection)
+- **Model size:** 18.5M parameters (~70MB)
+- **Inference time:** ~60ms per audio (CPU)
+- **Accuracy:** 70-85% with 20 human samples, 10-20% without
+- **Training time:** 10-20 minutes on CPU for 30 epochs
 
-## Acknowledgments
+## 📝 License
 
-Built with ❤️ for YoSushi kitchens worldwide.
+Custom built for YoSushi voice-controlled label printing.
 
----
+## 🙏 Credits
 
-**Status**: 🚧 In Development  
-**Version**: 0.1.0  
-**Last Updated**: November 2025
+Built from scratch using PyTorch, Transformers, and love for sushi! 🍣

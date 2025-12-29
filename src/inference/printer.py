@@ -88,8 +88,23 @@ class SushiPrinter:
             quantity: Number of labels to print
         """
         if self.printer is None:
-            print(f"[DUMMY PRINT] {quantity}x {item_name}")
+            # Console-friendly output: show each label
+            print("\n📄 PRINTING LABELS:")
+            print("=" * 40)
+            for i in range(quantity):
+                print(f"  {item_name}")
+            print("=" * 40)
+            print(f"✅ {quantity} label(s) printed\n")
             return
+        
+        # Show console output for dummy mode
+        if self.dummy_mode:
+            print("\n📄 PRINTING LABELS:")
+            print("=" * 40)
+            for i in range(quantity):
+                print(f"  {item_name}")
+            print("=" * 40)
+            print(f"✅ {quantity} label(s) printed\n")
         
         try:
             for i in range(quantity):
